@@ -1,2 +1,1 @@
-*.ino linguist-detectable
-*.ino linguist-language=Arduino
+*.ino linguist-language=Java
