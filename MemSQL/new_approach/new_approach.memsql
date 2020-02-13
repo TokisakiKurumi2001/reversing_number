@@ -1,0 +1,23 @@
+DELIMITER //
+CREATE OR REPLACE FUNCTION reverse_number(num VARCHAR(50))
+	RETURNS VARCHAR(50) AS
+DECLARE
+	len INT;
+	j INT;
+	return_str VARCHAR(50);
+	temp CHAR(1);
+BEGIN
+	len = length(num);
+	j = 0;
+	return_str = '';
+	temp = '';
+
+	FOR i IN 1..len LOOP
+		j = (-1) * i;
+		temp = SUBSTR(num, j, 1);
+		return_str = concat(return_str, temp);
+	END LOOP;
+
+	RETURN return_str;
+END //
+DELIMITER ;

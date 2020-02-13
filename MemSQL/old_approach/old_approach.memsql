@@ -1,0 +1,20 @@
+DELIMITER //
+CREATE OR REPLACE FUNCTION reverse_number(the_num BIGINT)
+	RETURNS BIGINT AS
+DECLARE
+	digit INT;
+	the_sum BIGINT;
+	num BIGINT;
+BEGIN
+	num = the_num;
+	the_sum = 0;
+	digit = 0;
+
+	WHILE (num != 0) LOOP
+		digit = num % 10;
+		the_sum = the_sum * 10 + digit;
+		num = FLOOR(num / 10);
+	END LOOP;
+	RETURN the_sum;
+END //
+DELIMITER ;
